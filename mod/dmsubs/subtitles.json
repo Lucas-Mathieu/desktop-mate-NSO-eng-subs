@@ -1,0 +1,686 @@
+{
+  "lines": {
+    "Amechan01/01_C1": {
+      "jp": "ピ、こういうことするの好きなんだ。",
+      "en": "So you're into this kind of thing, P-chan?"
+    },
+    "Amechan01/02_C1": {
+      "jp": "どこに連れてく気?",
+      "en": "Where are you taking me?"
+    },
+    "Amechan01/03_C1": {
+      "jp": "このまま捨てたりしないよね。捨てたらゴミ箱の中で一生呪うから。",
+      "en": "You're not going to just throw me away, right? If you do, I'll curse you from inside the trash bin for the rest of your life.",
+      "cues": [
+        [
+          0,
+          "You're not going to just throw me away, right?"
+        ],
+        [
+          2.35,
+          "If you do, I'll curse you from inside the trash bin for the rest of your life."
+        ]
+      ]
+    },
+    "Amechan01/04_C1": {
+      "jp": "このふわふわする感じ、結構好きなんだよね。",
+      "en": "I actually kinda like this floaty feeling."
+    },
+    "Amechan01/05_C2": {
+      "jp": "この持ち方やだ。",
+      "en": "I hate being held like this."
+    },
+    "Amechan01/06_C2": {
+      "jp": "もっと優しく扱って。",
+      "en": "Be gentler with me."
+    },
+    "Amechan01/07_C2": {
+      "jp": "もっと丁寧に扱って。じゃないと…",
+      "en": "Handle me with more care. Or else...",
+      "cues": [
+        [
+          0,
+          "Handle me with more care."
+        ],
+        [
+          2.21,
+          "Or else..."
+        ]
+      ]
+    },
+    "Amechan01/08_C2": {
+      "jp": "私の嫌がることして楽しい? …ふーん。",
+      "en": "Is it fun doing stuff I hate? ...Hmph.",
+      "cues": [
+        [
+          0,
+          "Is it fun doing stuff I hate?"
+        ],
+        [
+          4.85,
+          "...Hmph."
+        ]
+      ]
+    },
+    "Amechan01/09_C0": {
+      "jp": "やだ、お姫様抱っこがいい。",
+      "en": "No way. I want a princess carry."
+    },
+    "Amechan01/10_C0": {
+      "jp": "あ、なに?",
+      "en": "Ah— what?"
+    },
+    "Amechan01/11_D1": {
+      "jp": "ピ、そんなに私のこと好きなの?",
+      "en": "P-chan, do you really like me that much?"
+    },
+    "Amechan01/12_D1": {
+      "jp": "なんかやる気出てきた、気がする。",
+      "en": "I feel like I'm getting kinda motivated... maybe."
+    },
+    "Amechan01/14_D2": {
+      "jp": "これ以上好きになったら、何するかわからないかも。",
+      "en": "If I fall for you any harder, I don't know what I might do."
+    },
+    "Amechan01/15_D2": {
+      "jp": "リアルの嫌なこと、全部忘れられそう。",
+      "en": "I feel like I could forget all the crap in real life."
+    },
+    "Amechan01/16_D2": {
+      "jp": "ピになでられると安心するんだ。",
+      "en": "Getting head pats from you makes me feel safe, P-chan."
+    },
+    "Amechan01/17_D0": {
+      "jp": "もっとして。",
+      "en": "Keep going."
+    },
+    "Amechan01/18_D0": {
+      "jp": "こんなに優しくしておいて浮気したら、刺しちゃうから。",
+      "en": "You're being this sweet to me... so if you cheat, I'll stab you."
+    },
+    "Amechan01/19_D0": {
+      "jp": "ピがいないと生きられない体になったら、責任取ってね。",
+      "en": "If I end up unable to live without you, P-chan, you'd better take responsibility.",
+      "cues": [
+        [
+          0,
+          "If I end up unable to live without you, P-chan,"
+        ],
+        [
+          2.65,
+          "you'd better take responsibility."
+        ]
+      ]
+    },
+    "Amechan01/20_E1": {
+      "jp": "次の配信ネタ考えておいてね。全部ピに任せるから。",
+      "en": "Think up ideas for my next stream, okay? I'm leaving it all to you, P-chan.",
+      "cues": [
+        [
+          0,
+          "Think up ideas for my next stream, okay?"
+        ],
+        [
+          2.11,
+          "I'm leaving it all to you, P-chan."
+        ]
+      ]
+    },
+    "Amechan01/21_E1": {
+      "jp": "ふーん。普段こういうの見てるんだ。へえ。",
+      "en": "Hmm. So this is the kind of stuff you usually look at. Huh."
+    },
+    "Amechan01/22_E1": {
+      "jp": "知らなかったピのこと、たくさん知れて結構楽しいかも。",
+      "en": "Finding out so much I didn't know about you is kinda fun, P-chan."
+    },
+    "Amechan01/23_E2": {
+      "jp": "もし私が消えても、ピは探してくれるよね。",
+      "en": "Even if I disappeared, you'd come looking for me, right, P-chan?"
+    },
+    "Amechan01/24_E2": {
+      "jp": "今、エゴサで忙しいから。",
+      "en": "I'm busy egosurfing right now."
+    },
+    "Amechan01/25_E2": {
+      "jp": "相変わらず自分の顔が良すぎる。",
+      "en": "My face is way too good, as usual."
+    },
+    "Amechan01/26_E2": {
+      "jp": "今日もインターネットではオタクたちがしょうもない喧嘩してて平和だねー。",
+      "en": "The otaku online are having pointless fights again today. So peaceful~"
+    },
+    "Amechan01/27_E2": {
+      "jp": "アメちゃんのスマホ覗いちゃダメだからね。",
+      "en": "No peeking at Ame-chan's phone, okay?"
+    },
+    "Amechan01/28_E0": {
+      "jp": "私をずっとそばに置いてね。私の居場所ってここだけだから。なくなったら、存在ごと消えるね。",
+      "en": "Keep me by your side forever, okay? This is the only place I belong. If it were gone, I'd vanish — existence and all.",
+      "cues": [
+        [
+          0,
+          "Keep me by your side forever, okay?"
+        ],
+        [
+          2.15,
+          "This is the only place I belong."
+        ],
+        [
+          5.25,
+          "If it were gone, I'd vanish — existence and all."
+        ]
+      ]
+    },
+    "Amechan01/29_E0": {
+      "jp": "ちゃんと仕事しなよね。私はしないけど。",
+      "en": "Do your work properly, okay? Not that I will."
+    },
+    "Amechan01/30_F1A": {
+      "jp": "絶対また呼んでね。絶対だよ。",
+      "en": "Definitely call me again. Definitely, okay?"
+    },
+    "Amechan01/31_F1A": {
+      "jp": "離れたくないのに。",
+      "en": "But I don't want to leave you..."
+    },
+    "Amechan01/32_F1A": {
+      "jp": "また明日もピと一緒にいてね。",
+      "en": "Stay with me again tomorrow too, P-chan."
+    },
+    "Amechan01/33_F1A": {
+      "jp": "浮気したら絶対許さないから。",
+      "en": "If you cheat on me, I'll never forgive you."
+    },
+    "Amechan01/34_F1A": {
+      "jp": "浮気したら絶対許さないから。",
+      "en": "If you cheat on me, I'll never forgive you."
+    },
+    "Amechan01/35_F1A": {
+      "jp": "私のこと忘れたら嫌だよ。アメちゃんを生かしてるのはピだってこと忘れないでね。",
+      "en": "Don't you dare forget about me. And don't forget, P-chan — you're the one keeping Ame-chan alive.",
+      "cues": [
+        [
+          0,
+          "Don't you dare forget about me."
+        ],
+        [
+          2.6,
+          "And don't forget, P-chan — you're the one keeping Ame-chan alive."
+        ]
+      ]
+    },
+    "Amechan01/36_F1A": {
+      "jp": "呼んでくれてありがとね、ピ。",
+      "en": "Thanks for calling me, P-chan."
+    },
+    "Amechan01/37_F2A": {
+      "jp": "アメちゃんのこと、いっぱいチヤホヤしてね。",
+      "en": "Pamper Ame-chan lots, okay?"
+    },
+    "Amechan01/38_F2A": {
+      "jp": "会えない間、ずっと寂しかったよ。また明日も、ピ、一緒にいてね。",
+      "en": "I was lonely the whole time we were apart. Stay with me tomorrow too, P-chan.",
+      "cues": [
+        [
+          0,
+          "I was lonely the whole time we were apart."
+        ],
+        [
+          3.29,
+          "Stay with me tomorrow too, P-chan."
+        ]
+      ]
+    },
+    "Amechan01/39_F2A": {
+      "jp": "また会えたね、ピ。",
+      "en": "We meet again, P-chan."
+    },
+    "Amechan01/40_F2A": {
+      "jp": "ピの一番近くにいるから、他の女ばっかり見たらバレバレだよ。気をつけてね。",
+      "en": "I'm always the closest one to you, P-chan, so if you keep looking at other girls, I'll know. Careful, okay?",
+      "cues": [
+        [
+          0,
+          "I'm always the closest one to you, P-chan,"
+        ],
+        [
+          2.1,
+          "so if you keep looking at other girls, I'll know. Careful, okay?"
+        ]
+      ]
+    },
+    "Amechan01/41_F2A": {
+      "jp": "呼んでくれないかと思って不安になっちゃった。私を放置したらどうなるか、わかってるよね?",
+      "en": "I got worried you weren't going to call me. You know what happens if you neglect me, right?",
+      "cues": [
+        [
+          0,
+          "I got worried you weren't going to call me."
+        ],
+        [
+          3.15,
+          "You know what happens if you neglect me, right?"
+        ]
+      ]
+    },
+    "Amechan01/42_F2A": {
+      "jp": "呼んでくれないかと思って不安になっちゃった。私を放置したらどうなるか、わかってるよね?",
+      "en": "I got worried you weren't going to call me. You know what happens if you neglect me, right?",
+      "cues": [
+        [
+          0,
+          "I got worried you weren't going to call me."
+        ],
+        [
+          3.2,
+          "You know what happens if you neglect me, right?"
+        ]
+      ]
+    },
+    "Amechan01/43_F2A": {
+      "jp": "しっかりと私の面倒を見てね。",
+      "en": "Take good care of me, okay?"
+    },
+    "Amechan01/44_F1B": {
+      "jp": "えー、移動しないとダメ?",
+      "en": "Ehh, do I have to move?"
+    },
+    "Amechan01/45_F1B": {
+      "jp": "めんどくさいなあ…",
+      "en": "Ugh, what a pain..."
+    },
+    "Amechan01/46_F1B": {
+      "jp": "よいしょっと。",
+      "en": "Hup!"
+    },
+    "Amechan01/47_F2B": {
+      "jp": "こんなに顔のいい女を運動させるんじゃないよ。",
+      "en": "Don't make a girl with a face this good do exercise."
+    },
+    "Amechan01/48_F2B": {
+      "jp": "移動終わり。",
+      "en": "Done moving."
+    },
+    "Amechan01/49_F2B": {
+      "jp": "ふぅ。",
+      "en": "Phew."
+    },
+    "Amechan01/50_H1": {
+      "jp": "時間だよ。こんな顔のいい女に声かけてもらえるなんて。ピは幸せだね。",
+      "en": "It's time. Getting woken up by a girl with a face this good... Lucky you, P-chan.",
+      "cues": [
+        [
+          0,
+          "It's time."
+        ],
+        [
+          1.0,
+          "Getting woken up by a girl with a face this good..."
+        ],
+        [
+          5.2,
+          "Lucky you, P-chan."
+        ]
+      ]
+    },
+    "Amechan01/51_H1": {
+      "jp": "時間だよ。たまたま覚えていられたけど、次はわからないよ。",
+      "en": "It's time. I just happened to remember this time — no promises for next time.",
+      "cues": [
+        [
+          0,
+          "It's time."
+        ],
+        [
+          1.2,
+          "I just happened to remember this time — no promises for next time."
+        ]
+      ]
+    },
+    "Amechan01/52_H1": {
+      "jp": "時間だよー。無視だけは絶対に許さない。",
+      "en": "It's time~ Ignoring me is the one thing I'll never forgive.",
+      "cues": [
+        [
+          0,
+          "It's time~"
+        ],
+        [
+          1.4,
+          "Ignoring me is the one thing I'll never forgive."
+        ]
+      ]
+    },
+    "Amechan01/53_I1": {
+      "jp": "やるか。変身!",
+      "en": "Here goes. Transform!"
+    },
+    "ChouTenchan01/01_C1": {
+      "jp": "オタクってつまむの好きだよねー。",
+      "en": "You otaku sure love picking me up, huh~"
+    },
+    "ChouTenchan01/02_C1": {
+      "jp": "すごーい!飛んでるみたい!",
+      "en": "Wow! It's like I'm flying!"
+    },
+    "ChouTenchan01/03_C1": {
+      "jp": "二人っきりだからって超てんちゃんを好きにしていいと思うなよ。でも悪くない仕事かもね。",
+      "en": "Don't think you can do whatever you want with KAngel just 'cause we're alone! ...But maybe it's not a bad gig.",
+      "cues": [
+        [
+          0,
+          "Don't think you can do whatever you want with KAngel just 'cause we're alone!"
+        ],
+        [
+          3.35,
+          "...But maybe it's not a bad gig."
+        ]
+      ]
+    },
+    "ChouTenchan01/04_C1": {
+      "jp": "つままれ超てんちゃんのスクショチャンスだよ。",
+      "en": "Screenshot chance: KAngel, picked up!"
+    },
+    "ChouTenchan01/05_C2": {
+      "jp": "持ち方のセンスない。",
+      "en": "You have zero sense for how to hold a girl."
+    },
+    "ChouTenchan01/06_C2": {
+      "jp": "早く降ろして!",
+      "en": "Put me down already!"
+    },
+    "ChouTenchan01/07_C2": {
+      "jp": "この拳でアンチを全員粉砕する!",
+      "en": "I'll crush every last anti with this fist!"
+    },
+    "ChouTenchan01/09_C0": {
+      "jp": "どこに連れて行ってくれるの?",
+      "en": "Where are you taking me?"
+    },
+    "ChouTenchan01/10_C0": {
+      "jp": "あっ、急に持ち上げないでよね。",
+      "en": "Ah! Don't just lift me up out of nowhere!"
+    },
+    "ChouTenchan01/11_D1": {
+      "jp": "これはしっぽじゃなくてポニーテールなんだからね。あ、ツインテールか。",
+      "en": "This isn't a tail, it's a ponytail, okay? Oh wait — twintails.",
+      "cues": [
+        [
+          0,
+          "This isn't a tail, it's a ponytail, okay?"
+        ],
+        [
+          2.83,
+          "Oh wait — twintails."
+        ]
+      ]
+    },
+    "ChouTenchan01/12_D1": {
+      "jp": "私だけ見ててね。",
+      "en": "Keep your eyes on me and only me, okay?"
+    },
+    "ChouTenchan01/13_D1": {
+      "jp": "こんなに可愛い天使に触れられること、光栄に思うよな。",
+      "en": "Getting to touch an angel this cute— you should feel honored.",
+      "cues": [
+        [
+          0,
+          "Getting to touch an angel this cute—"
+        ],
+        [
+          2.43,
+          "you should feel honored."
+        ]
+      ]
+    },
+    "ChouTenchan01/14_D2": {
+      "jp": "私だけ見ててね。",
+      "en": "Keep your eyes on me and only me, okay?"
+    },
+    "ChouTenchan01/15_D2": {
+      "jp": "もっと撫でてもいいよ。",
+      "en": "You can pet me more, you know."
+    },
+    "ChouTenchan01/16_D2": {
+      "jp": "くすぐったい、やめなさい!",
+      "en": "That tickles! Stop it!"
+    },
+    "ChouTenchan01/17_D0": {
+      "jp": "マウス越しでもあなたの気持ち伝わってるよ。",
+      "en": "Even through the mouse, I can feel how you feel."
+    },
+    "ChouTenchan01/18_D0": {
+      "jp": "今はあなただけの天使だよ。なんてね。",
+      "en": "Right now, I'm your angel and yours alone. ...Just kidding~",
+      "cues": [
+        [
+          0,
+          "Right now, I'm your angel and yours alone."
+        ],
+        [
+          2.05,
+          "...Just kidding~"
+        ]
+      ]
+    },
+    "ChouTenchan01/19_D0": {
+      "jp": "別にもっと撫でてほしいわけじゃないんだからね。",
+      "en": "I-It's not like I want you to pet me more or anything!"
+    },
+    "ChouTenchan01/20_E1": {
+      "jp": "あなたの天使はいつでもここにいるからね。",
+      "en": "Your angel will always be right here, okay?"
+    },
+    "ChouTenchan01/21_E1": {
+      "jp": "インターネットエンジェル、ただいま降臨!",
+      "en": "Internet Angel, descending right now!"
+    },
+    "ChouTenchan01/22_E1": {
+      "jp": "このゴミカスみたいな現実を忘れさせてあげるね。",
+      "en": "I'll make you forget this garbage reality."
+    },
+    "ChouTenchan01/23_E2": {
+      "jp": "ああ、今変なところ触ったでしょ!",
+      "en": "Ah! You just touched somewhere weird, didn't you?!"
+    },
+    "ChouTenchan01/24_E2": {
+      "jp": "変なサイトばっかり見ちゃダメだぞー。",
+      "en": "No looking at weird sites all the time~"
+    },
+    "ChouTenchan01/25_E2": {
+      "jp": "くすぐったい!ツンツン禁止!",
+      "en": "That tickles! No poking!"
+    },
+    "ChouTenchan01/26_E2": {
+      "jp": "インターネットは危険がいっぱいだから気をつけろよ。",
+      "en": "The internet is full of dangers, so watch yourself!"
+    },
+    "ChouTenchan01/27_E2": {
+      "jp": "ネットばっかりやってないで、たまには外に出なさい。",
+      "en": "Stop living online and go outside once in a while!"
+    },
+    "ChouTenchan01/28_E0": {
+      "jp": "任せとけー!",
+      "en": "Leave it to me~!"
+    },
+    "ChouTenchan01/29_E0": {
+      "jp": "超てんちゃんのこと、もっと好きになってね。",
+      "en": "Love KAngel even more, okay?"
+    },
+    "ChouTenchan01/30_F1A": {
+      "jp": "じゃあね、昇天!",
+      "en": "See ya! *ascends to heaven*"
+    },
+    "ChouTenchan01/31_F1A": {
+      "jp": "じゃあねー、しょーてん!",
+      "en": "Bye-bye~ Ascending!"
+    },
+    "ChouTenchan01/32_F1A": {
+      "jp": "また呼んでね。天使との約束だよ。",
+      "en": "Call me again, okay? That's a promise with an angel."
+    },
+    "ChouTenchan01/33_F1A": {
+      "jp": "天使はみんなの夢に帰るね。バイバイ。",
+      "en": "This angel's going back to everyone's dreams. Bye-bye!",
+      "cues": [
+        [
+          0,
+          "This angel's going back to everyone's dreams."
+        ],
+        [
+          2.15,
+          "Bye-bye!"
+        ]
+      ]
+    },
+    "ChouTenchan01/34_F1A": {
+      "jp": "天使はみんなの夢に帰るね。バイバイ。",
+      "en": "This angel's going back to everyone's dreams. Bye-bye!",
+      "cues": [
+        [
+          0,
+          "This angel's going back to everyone's dreams."
+        ],
+        [
+          2.09,
+          "Bye-bye!"
+        ]
+      ]
+    },
+    "ChouTenchan01/35_F1A": {
+      "jp": "超てんちゃんは次のオタクを救いに行くね。",
+      "en": "KAngel's off to save the next otaku!"
+    },
+    "ChouTenchan01/36_F1A": {
+      "jp": "バイバイ。またね。",
+      "en": "Bye-bye. See you!"
+    },
+    "ChouTenchan01/37_F1A": {
+      "jp": "次もあなたの天使として降臨するからね。",
+      "en": "Next time, I'll descend as your angel again!"
+    },
+    "ChouTenchan01/38_F2A": {
+      "jp": "エンジェルは今日もやってくよー。",
+      "en": "Your angel's on the job today too~!"
+    },
+    "ChouTenchan01/39_F2A": {
+      "jp": "インターネットエンジェル、あなたのデスクトップに降臨!",
+      "en": "Internet Angel, descending onto your desktop!"
+    },
+    "ChouTenchan01/40_F2A": {
+      "jp": "インターネットエンジェルは用法・用量を正しく守ってデスクトップに置いてね。",
+      "en": "Keep your Internet Angel on the desktop as directed. Do not exceed the recommended dose!"
+    },
+    "ChouTenchan01/41_F2A": {
+      "jp": "デスクトップエンジェルのお仕事、始めるよー。",
+      "en": "Time to start my Desktop Angel shift~!"
+    },
+    "ChouTenchan01/42_F2A": {
+      "jp": "超てんちゃんを見て、少しでも嫌な現実を忘れてね。",
+      "en": "Look at KAngel and forget your crappy reality, even just a little."
+    },
+    "ChouTenchan01/43_F2A": {
+      "jp": "今だけはあなたのインターネットエンジェルだよ。",
+      "en": "Just for now, I'm your Internet Angel."
+    },
+    "ChouTenchan01/44_F1B": {
+      "jp": "飛んでいくね。",
+      "en": "I'll fly over!"
+    },
+    "ChouTenchan01/45_F1B": {
+      "jp": "天使使いが荒い。行くけど。",
+      "en": "You sure work your angel hard. ...I'll go, though.",
+      "cues": [
+        [
+          0,
+          "You sure work your angel hard."
+        ],
+        [
+          1.65,
+          "...I'll go, though."
+        ]
+      ]
+    },
+    "ChouTenchan01/48_F2B": {
+      "jp": "参上!",
+      "en": "Here I am!"
+    },
+    "ChouTenchan01/49_F2B": {
+      "jp": "ふぅ、移動完了!",
+      "en": "Phew, move complete!"
+    },
+    "ChouTenchan01/50_H1_C": {
+      "jp": "時間になりました。が、時間などというものにとらわれて生きるのはやめたほうがいい、ということを超てんちゃんがお知らせします。",
+      "en": "It is now time. However, you'd be better off not living as a prisoner of something like \"time\"— or so KAngel would like to inform you.",
+      "cues": [
+        [
+          0,
+          "It is now time."
+        ],
+        [
+          1.35,
+          "However, you'd be better off not living as a prisoner of something like \"time\"—"
+        ],
+        [
+          6.27,
+          "or so KAngel would like to inform you."
+        ]
+      ]
+    },
+    "ChouTenchan01/51_H1": {
+      "jp": "カンカンカーン!時間だよー!でも起きなくてもいいよー!寝てろー!",
+      "en": "Ding-ding-diiing! It's time! But you don't have to get up! Go back to sleep!",
+      "cues": [
+        [
+          0,
+          "Ding-ding-diiing! It's time!"
+        ],
+        [
+          2.4,
+          "But you don't have to get up! Go back to sleep!"
+        ]
+      ]
+    },
+    "ChouTenchan01/52_H1": {
+      "jp": "時間になったらしいというのを教えてあげます。ついでにこのアラームがデスクトップのお仕事の中で一番だるいことも教えてあげます。",
+      "en": "Allow me to inform you that it's apparently time. Allow me to also inform you that this alarm is the most tedious part of my desktop job.",
+      "cues": [
+        [
+          0,
+          "Allow me to inform you that it's apparently time."
+        ],
+        [
+          3.19,
+          "Allow me to also inform you that this alarm is the most tedious part of my desktop job."
+        ]
+      ]
+    },
+    "ChouTenchan01/53_I1": {
+      "jp": "インターネットエンジェル、かわいく参上!",
+      "en": "Internet Angel, here in all my cuteness!"
+    },
+    "ChouTenchan01/54_I1": {
+      "jp": "インターネットエンジェル、ただいま降臨!",
+      "en": "Internet Angel, descending right now!"
+    },
+    "ChouTenchan01/61_Z1": {
+      "jp": "超てんちゃん降臨!",
+      "en": "KAngel has descended!"
+    },
+    "ChouTenchan01/62_Z1": {
+      "jp": "迷えるオタクのみんな、また会えたね。",
+      "en": "All you lost otaku out there— we meet again!",
+      "cues": [
+        [
+          0,
+          "All you lost otaku out there—"
+        ],
+        [
+          1.45,
+          "we meet again!"
+        ]
+      ]
+    }
+  }
+}

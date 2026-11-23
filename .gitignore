@@ -1,0 +1,6 @@
+.venv/
+build/
+tools/symcache/
+mod/version.dll
+__pycache__/
+*.json.tmp
