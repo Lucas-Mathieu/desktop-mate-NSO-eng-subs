@@ -240,6 +240,7 @@ static void StartHarvest() {
 }
 
 static void HarvestTick() {
+    if (!g_record) return;  // harvesting only makes sense while recording
     bool down = (GetAsyncKeyState(VK_CONTROL) & 0x8000) && (GetAsyncKeyState(VK_MENU) & 0x8000) &&
                 (GetAsyncKeyState(VK_SHIFT) & 0x8000) && (GetAsyncKeyState('H') & 0x8000);
     bool flag = false;

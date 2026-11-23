@@ -3,6 +3,25 @@
 Shows an English subtitle above the character, in sync with what she says.
 Currently translated: **Ame-chan** (`wss_amechan.cb`) and **Chouten-chan** (`wss_choutenchan.cb`).
 
+## Installing
+
+1. Download `dmsubs-vX.Y.Z.zip` from the [latest release](https://github.com/Lucas-Mathieu/desktop-mate-NSO-eng-subs/releases/latest).
+2. Open the game folder: in Steam, right-click **Desktop Mate** → **Manage** → **Browse local files**
+   (usually `C:\Program Files (x86)\Steam\steamapps\common\Desktop Mate`).
+3. Extract the zip **into that folder**, so that `version.dll` sits next to `DesktopMate.exe`:
+   ```
+   Desktop Mate\
+   ├── DesktopMate.exe
+   ├── version.dll        <- from the zip
+   └── dmsubs\            <- from the zip
+   ```
+4. Start Desktop Mate as usual. Subtitles appear above Ame-chan / Chouten-chan whenever they talk.
+
+**Uninstall:** delete `version.dll` (and the `dmsubs` folder) from the game folder.
+
+**Not working?** Check `dmsubs\dmsubs.log`. If it says the `UnityPlayer.dll` build doesn't match,
+the game was updated and the mod turned itself off (the game runs normally); grab a newer release.
+
 ## How it works
 
 - `version.dll` is a proxy DLL that Desktop Mate (Unity) loads at startup. It forwards the real
@@ -15,14 +34,16 @@ Currently translated: **Ame-chan** (`wss_amechan.cb`) and **Chouten-chan** (`wss
 - Function addresses come from **Unity's public symbol server** for the exact `UnityPlayer.dll` build,
   so the game's encrypted bundles and obfuscated scripts are never touched.
 
-## Install
+## Building from source
 
 ```
 build.bat                      (needs Visual Studio C++ tools; produces mod\version.dll)
-python tools\install.py        (close Desktop Mate first)
+python tools\install.py        (copies it into the game; close Desktop Mate first)
+python tools\package.py        (makes the release zip in dist\)
 ```
 
-Uninstall: `python tools\install.py --uninstall` (or delete `version.dll` from the game folder).
+`install.py` assumes the game is at `D:\SteamLibrary\steamapps\common\Desktop Mate`; pass
+`--game <path>` otherwise. `python tools\install.py --uninstall` removes `version.dll` again.
 
 ## After a game update
 
@@ -45,7 +66,7 @@ python tools\install.py
 | `follow_character` | 1 | 0 = fixed at the bottom of the screen |
 | `follow_smoothing`, `follow_dead_zone_px` | 0.35, 18 | easing time (s) and ignored head sway (px) |
 | `head_offset_world`, `gap_px` | 0, 12 | nudge the position |
-| `record_new_lines` | 1 | save new, untranslated lines as WAV for `tools\learn.py` |
+| `record_new_lines` | 0 (release), 1 (source) | save new, untranslated lines as WAV for `tools\learn.py` |
 | `harvest_skip` | `Voi_,SE` | clip-name parts ignored by harvest |
 
 ## Adding / fixing translations
