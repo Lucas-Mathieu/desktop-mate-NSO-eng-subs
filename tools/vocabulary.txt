@@ -1,0 +1,15 @@
+# Words whisper (tools/learn.py) should expect, one per line. Lines starting with # are ignored.
+# Add the names and catchphrases of the characters you translate - whisper otherwise mishears
+# rare words (e.g. ピ -> "ピュア", 超てんちゃん -> "頂点ちゃん").
+
+# NEEDY STREAMER OVERLOAD (Ame-chan / Chouten-chan)
+ピ
+超てんちゃん
+アメちゃん
+インターネットエンジェル
+オタク
+配信
+エゴサ
+
+# general
+デスクトップ

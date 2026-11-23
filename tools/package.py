@@ -10,13 +10,14 @@ Contents (extract into the Desktop Mate folder):
 import re
 import sys
 import zipfile
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from common import REPO_SUBS, ROOT, load_json, repo_url
+
 MOD = ROOT / "mod"
 
-PLAYER_README = """dmsubs - English subtitles for Desktop Mate (Ame-chan & Chouten-chan)
-https://github.com/Lucas-Mathieu/desktop-mate-NSO-eng-subs
+# Character names come from "characters" in mod/dmsubs/subtitles.json, the link from your git remote.
+PLAYER_README = """dmsubs - English subtitles for Desktop Mate ({characters})
+{url}
 
 Install: extract the zip into the Desktop Mate folder so version.dll sits next to DesktopMate.exe
 (Steam: right-click Desktop Mate > Manage > Browse local files).
@@ -33,6 +34,8 @@ def main():
     ini = (MOD / "dmsubs" / "dmsubs.ini").read_text(encoding="utf-8")
     ini = re.sub(r"(?m)^record_new_lines=.*$", "record_new_lines=0", ini)
     ini = re.sub(r"(?m)^show_untranslated_clip_names=.*$", "show_untranslated_clip_names=0", ini)
+    names = list(load_json(REPO_SUBS).get("characters", {}).values())
+    characters = " & ".join([", ".join(names[:-1]), names[-1]] if len(names) > 1 else names) or "?"
     out = ROOT / "dist" / f"dmsubs-{version}.zip"
     out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
@@ -41,7 +44,7 @@ def main():
         z.write(MOD / "dmsubs" / "subtitles.json", "dmsubs/subtitles.json")
         z.writestr("dmsubs/dmsubs.ini", ini)
         z.write(ROOT / "third_party" / "minhook" / "LICENSE.txt", "dmsubs/LICENSE-MinHook.txt")
-        z.writestr("dmsubs/README.txt", PLAYER_README)
+        z.writestr("dmsubs/README.txt", PLAYER_README.format(characters=characters, url=repo_url() or ""))
     print(out)
 
 

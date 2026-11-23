@@ -1,4 +1,8 @@
 {
+  "characters": {
+    "Amechan01": "Ame-chan",
+    "ChouTenchan01": "Chouten-chan"
+  },
   "lines": {
     "Amechan01/01_C1": {
       "jp": "ピ、こういうことするの好きなんだ。",

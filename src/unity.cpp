@@ -153,6 +153,7 @@ static bool Project(int id, float up, float* ox, float* oy) {
 
 // Character id from the model's effect node, a direct child of the root:
 // "Eff_Cha_Amechan01" -> "Amechan01", "Eff_ChouTenchan01" -> "ChouTenchan01".
+// If you add a character whose id comes out wrong/empty in dmsubs.log, this is the place to adapt.
 static bool CharIdRaw(void* src, char* out, size_t n) {
     __try {
         out[0] = 0;
@@ -168,6 +169,15 @@ static bool CharIdRaw(void* src, char* out, size_t n) {
             strncpy_s(out, n, id, _TRUNCATE);
             return true;
         }
+        // Other models may not follow that naming: fall back to the root object's own name.
+        const char* nm = CompName(root);
+        if (!nm) return true;
+        strncpy_s(out, n, nm, _TRUNCATE);
+        if (char* c = strstr(out, "(Clone)")) *c = 0;
+        size_t len = strlen(out);
+        while (len && out[len - 1] == ' ') out[--len] = 0;
+        for (char* p = out; *p; ++p)  // it becomes a folder name and a key prefix
+            if (strchr("\\/:*?\"<>| ", *p)) *p = '_';
         return true;
     } __except (EXCEPTION_EXECUTE_HANDLER) {
         return false;

@@ -10,6 +10,9 @@ Curated fields ("en", "cues") are never touched, and always win over "en_auto".
 
     .venv\\Scripts\\python tools\\learn.py            # process new clips once
     .venv\\Scripts\\python tools\\learn.py --watch    # keep running while you play
+
+Names and terms whisper should know (character names, catchphrases...) go in
+tools/vocabulary.txt.
 """
 import argparse
 import json
@@ -18,12 +21,23 @@ import sys
 import time
 from pathlib import Path
 
-DEFAULT_GAME = Path(r"D:\SteamLibrary\steamapps\common\Desktop Mate")
 PRE_ROLL = 0.15  # the mod starts each WAV this many seconds before the clip
 
-# Vocabulary hint for whisper (NEEDY STREAMER OVERLOAD terms it otherwise mishears,
-# e.g. ピ -> "ピュア", 超てんちゃん -> "頂点ちゃん").
-PROMPT = "ピ、超てんちゃん、アメちゃん、インターネットエンジェル、オタク、配信、エゴサ、デスクトップ。"
+from common import game_arg, load_json as load_db, require_game, save_json as save_db
+
+# Vocabulary hint for whisper: tools/vocabulary.txt (lines starting with # are comments).
+VOCAB_FILE = Path(__file__).with_name("vocabulary.txt")
+
+
+def load_prompt():
+    if not VOCAB_FILE.exists():
+        return None
+    words = [l.strip() for l in VOCAB_FILE.read_text(encoding="utf-8").splitlines()
+             if l.strip() and not l.lstrip().startswith("#")]
+    return "、".join(words) + "。" if words else None
+
+
+PROMPT = load_prompt()
 
 # Whisper likes to invent these on silence / very short clips.
 HALLUCINATIONS = ("ご視聴ありがとうございました", "チャンネル登録", "お疲れ様でした。", "字幕", "Thank you for watching")
@@ -39,26 +53,6 @@ def add_cuda_dll_dirs():
             for b in nv.glob("*/bin"):
                 os.add_dll_directory(str(b))
                 os.environ["PATH"] = str(b) + os.pathsep + os.environ["PATH"]
-
-
-def load_db(path):
-    if path.exists():
-        return json.loads(path.read_text(encoding="utf-8-sig"))
-    return {"lines": {}}
-
-
-def save_db(path, db):
-    out = dict(db, lines=dict(sorted(db["lines"].items())))  # sorted copy; never rebind db["lines"]
-    tmp = path.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    for attempt in range(20):  # the game may be reading it right now
-        try:
-            os.replace(tmp, path)
-            break
-        except PermissionError:
-            if attempt == 19:
-                raise
-            time.sleep(0.1)
 
 
 def clean(text):
@@ -87,7 +81,7 @@ def load_wav16k(path):
 def process(model, wav, entry):
     audio = load_wav16k(wav)
     speech, info = [], None
-    for prompt in (PROMPT, None):  # the vocabulary prompt occasionally makes whisper return nothing
+    for prompt in ((PROMPT, None) if PROMPT else (None,)):  # the vocabulary prompt occasionally makes whisper return nothing
         segs, info = model.transcribe(audio, language="ja", beam_size=5, condition_on_previous_text=False,
                                       vad_filter=False, temperature=0.0, initial_prompt=prompt)
         speech = [s for s in segs if s.no_speech_prob < 0.6 and clean(s.text)]
@@ -131,12 +125,12 @@ def run_once(model, dmsubs, retranscribe=False):
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser()
-    ap.add_argument("--game", type=Path, default=DEFAULT_GAME)
+    game_arg(ap)
     ap.add_argument("--model", default="large-v3")
     ap.add_argument("--watch", action="store_true", help="keep checking for new clips")
     ap.add_argument("--retranscribe", action="store_true", help="redo clips that already have a transcript")
     args = ap.parse_args()
-    dmsubs = args.game / "dmsubs"
+    dmsubs = require_game(args.game) / "dmsubs"
     if not dmsubs.is_dir():
         sys.exit(f"{dmsubs} not found - is the mod installed?")
 

@@ -1,9 +1,17 @@
 @echo off
-rem Builds mod\version.dll (x64, static CRT). Requires Visual Studio C++ tools.
+rem Builds mod\version.dll (x64, static CRT). Needs Visual Studio (any edition, 2019 or newer) or
+rem the Build Tools with the "Desktop development with C++" workload. Run from any prompt.
 setlocal
 pushd "%~dp0"
-set "PATH=%PATH%;C:\Program Files (x86)\Microsoft Visual Studio\Installer"
-call "C:\Program Files\Microsoft Visual Studio\18\Community\VC\Auxiliary\Build\vcvars64.bat" >nul || goto :fail
+where cl >nul 2>nul && goto :build
+set "VSWHERE=%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe"
+if not exist "%VSWHERE%" goto :novs
+set "PATH=%PATH%;%ProgramFiles(x86)%\Microsoft Visual Studio\Installer"
+set "VS="
+for /f "usebackq delims=" %%i in (`"%VSWHERE%" -latest -products * -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath`) do set "VS=%%i"
+if not defined VS goto :novs
+call "%VS%\VC\Auxiliary\Build\vcvars64.bat" >nul || goto :fail
+:build
 if not exist build mkdir build
 set MH=third_party\minhook\src
 cl /nologo /O2 /MT /EHsc /std:c++17 /utf-8 /W3 /DUNICODE /D_UNICODE /Ithird_party\minhook\include ^
@@ -13,6 +21,8 @@ cl /nologo /O2 /MT /EHsc /std:c++17 /utf-8 /W3 /DUNICODE /D_UNICODE /Ithird_part
 popd
 echo OK: mod\version.dll
 exit /b 0
+:novs
+echo Visual Studio C++ tools not found - install "Desktop development with C++" (Visual Studio or Build Tools)
 :fail
 popd
 echo BUILD FAILED
