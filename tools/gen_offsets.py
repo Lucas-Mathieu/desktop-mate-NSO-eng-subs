@@ -4,7 +4,8 @@ Downloads Unity's public PDB for the exact UnityPlayer.dll build from
 symbolserver.unity3d.com, resolves the native functions the mod hooks, and
 derives the AudioSource -> clip PPtr field offset from disassembly.
 
-Re-run after every game update:  python tools/gen_offsets.py
+The mod does the same thing by itself at startup when the game updates
+(src/symbols.cpp); this script is for development / inspecting a build.
 """
 import argparse
 import ctypes
@@ -21,14 +22,11 @@ import pefile
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_GAME = Path(r"D:\SteamLibrary\steamapps\common\Desktop Mate")
 
-# key in ini -> exact (undecorated) symbol name
+# key in ini -> exact (undecorated) symbol name. Keep in sync with kWanted in src/symbols.cpp.
 WANTED = {
     "AudioSource_Play": "AudioSource::Play",
     "AudioSource_PlayOneShot": "AudioSource::PlayOneShot",
     "AudioSource_Stop": "AudioSource::Stop",
-    "AudioSource_Pause": "AudioSource_CUSTOM_Pause",
-    "AudioSource_UnPause": "AudioSource_CUSTOM_UnPause",
-    "AudioSource_IsPlaying": "AudioSource::IsPlaying",
     "PPtr_Deref": "PPtr<GameObject>::operator GameObject * __ptr64",
     "NamedObject_GetName": "NamedObject::GetName",
     "GameObject_GetName": "GameObject::GetName",

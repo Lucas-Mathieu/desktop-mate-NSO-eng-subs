@@ -24,6 +24,7 @@
 #include "capture.h"
 #include "overlay.h"
 #include "subtitles.h"
+#include "symbols.h"
 #include "unity.h"
 
 #pragma comment(lib, "ws2_32.lib")
@@ -343,27 +344,6 @@ static uintptr_t IniHex(const wchar_t* sec, const wchar_t* key) {
     return (uintptr_t)wcstoull(buf, nullptr, 0);
 }
 
-static std::string ModulePdbGuid(HMODULE m) {
-    auto base = (uint8_t*)m;
-    auto nt = (IMAGE_NT_HEADERS*)(base + ((IMAGE_DOS_HEADER*)base)->e_lfanew);
-    auto& dd = nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_DEBUG];
-    auto dbg = (IMAGE_DEBUG_DIRECTORY*)(base + dd.VirtualAddress);
-    for (DWORD i = 0; i < dd.Size / sizeof(IMAGE_DEBUG_DIRECTORY); ++i) {
-        if (dbg[i].Type != IMAGE_DEBUG_TYPE_CODEVIEW) continue;
-        auto cv = base + dbg[i].AddressOfRawData;
-        if (memcmp(cv, "RSDS", 4)) continue;
-        GUID g;
-        memcpy(&g, cv + 4, 16);
-        DWORD age;
-        memcpy(&age, cv + 20, 4);
-        char s[64];
-        sprintf_s(s, "%08X%04X%04X%02X%02X%02X%02X%02X%02X%02X%02X%X", g.Data1, g.Data2, g.Data3, g.Data4[0],
-                  g.Data4[1], g.Data4[2], g.Data4[3], g.Data4[4], g.Data4[5], g.Data4[6], g.Data4[7], age);
-        return s;
-    }
-    return "";
-}
-
 static bool Hook(uintptr_t addr, void* detour, void** orig, const char* name) {
     if (MH_CreateHook((void*)addr, detour, orig) != MH_OK || MH_EnableHook((void*)addr) != MH_OK) {
         Log("hook %s failed", name);
@@ -385,15 +365,9 @@ static DWORD WINAPI InitThread(void*) {
     for (int i = 0; i < 600 && !(up = GetModuleHandleW(L"UnityPlayer.dll")); ++i) Sleep(50);
     if (!up) { Log("UnityPlayer.dll not found"); return 0; }
 
-    wchar_t want[64] = {};
-    GetPrivateProfileStringW(L"unityplayer", L"pdb_guid", L"", want, 64, (g_dir + L"offsets.ini").c_str());
-    std::string have = ModulePdbGuid(up);
-    char wantA[64];
-    WideCharToMultiByte(CP_UTF8, 0, want, -1, wantA, 64, nullptr, nullptr);
-    Log("UnityPlayer @ %p build %s", up, have.c_str());
-    if (have != wantA) {
-        Log("UnityPlayer.dll build %s does not match offsets.ini (%s) - game updated? run tools\\gen_offsets.py. "
-            "Mod disabled.", have.c_str(), wantA);
+    if (!Symbols_Ensure(up, g_dir)) {
+        Log("could not resolve UnityPlayer.dll functions for this game build - subtitles off this session "
+            "(needs internet once after each game update)");
         return 0;
     }
     auto base = (uintptr_t)up;
@@ -406,7 +380,7 @@ static DWORD WINAPI InitThread(void*) {
     uintptr_t play = rva(L"AudioSource_Play"), one = rva(L"AudioSource_PlayOneShot"), stop = rva(L"AudioSource_Stop");
     if (!PPtrDeref || !NamedObjectGetName || !ComponentGetName || !ClipGetLength || !g_clipOff || !play || !one ||
         !stop) {
-        Log("offsets.ini incomplete - mod disabled");
+        Log("offsets.ini incomplete - delete it to regenerate");
         return 0;
     }
 

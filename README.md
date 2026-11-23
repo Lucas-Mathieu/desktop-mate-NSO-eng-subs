@@ -19,8 +19,10 @@ Currently translated: **Ame-chan** (`wss_amechan.cb`) and **Chouten-chan** (`wss
 
 **Uninstall:** delete `version.dll` (and the `dmsubs` folder) from the game folder.
 
-**Not working?** Check `dmsubs\dmsubs.log`. If it says the `UnityPlayer.dll` build doesn't match,
-the game was updated and the mod turned itself off (the game runs normally); grab a newer release.
+**Game updates:** nothing to do. The first time you start an updated game, the mod downloads
+Unity's public debug info for the new build (~25 MB, needs internet once) and adapts itself.
+
+**Not working?** Check `dmsubs\dmsubs.log`.
 
 ## How it works
 
@@ -45,15 +47,13 @@ python tools\package.py        (makes the release zip in dist\)
 `install.py` assumes the game is at `D:\SteamLibrary\steamapps\common\Desktop Mate`; pass
 `--game <path>` otherwise. `python tools\install.py --uninstall` removes `version.dll` again.
 
-## After a game update
+## Game updates
 
-If the game updates `UnityPlayer.dll`, the mod disables itself (see `dmsubs\dmsubs.log`) instead of
-crashing. Regenerate the addresses and reinstall:
-
-```
-python tools\gen_offsets.py
-python tools\install.py
-```
+`dmsubs\offsets.ini` caches where the hooked functions live in the installed `UnityPlayer.dll`.
+When the game updates, the mod notices the new build, downloads Unity's public PDB for it from
+`symbolserver.unity3d.com`, looks the functions up with Windows' dbghelp, rewrites `offsets.ini` and
+deletes the PDB (`src/symbols.cpp`). `tools\gen_offsets.py` does the same from the command line,
+for development.
 
 ## Settings — `<game>\dmsubs\dmsubs.ini`
 
@@ -101,7 +101,7 @@ Python setup for `learn.py`: `python -m venv .venv && .venv\Scripts\pip install 
 ```
 src/            the DLL: dmsubs.cpp (hooks, harvest), overlay.cpp (subtitle window),
                 subtitles.cpp (JSON db), unity.cpp (head bone / camera projection),
-                capture.cpp (WASAPI process-loopback recorder)
+                capture.cpp (WASAPI process-loopback recorder), symbols.cpp (self-update on game updates)
 tools/          gen_offsets.py, learn.py, install.py
 mod/            what gets installed: version.dll + dmsubs/{offsets.ini,dmsubs.ini,subtitles.json}
 third_party/    MinHook (BSD-2)
